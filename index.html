@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Exchange App</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon/Fic.png" type="image/x-icon">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <div class="container">
+            <!-- Loading -->
+            <span class="loading" id="loading"></span>
+            <!-- Title -->
+            <h1>Crypto Exchange App</h1>
+            <!-- Form -->
+            <form id="form">
+                <!-- Select -->
+                <select id="crypto-select">
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="ripple">Ripple</option>
+                    <option value="litecoin">Litecoin</option>
+                    <option value="ethereum">Ethereum</option>
+                    <option value="stellar">Stellar</option>
+                    <option value="cardano">Cardano</option>
+                    <option value="bitcoin-cash">Bitcoin-cash</option>
+                    <option value="polkadot">Polkadot</option>
+                    <option value="chainlink">Chainlink</option>
+                    <option value="dogecoin">Dogecoin</option>
+                </select>
+                <input type="number" id="token-amount" placeholder="Enter your amount" required />
+                <button type="submit" id="add-btn">Add to your portfolio</button>
+            </form>
+            <h2>Your portfolio :</h2>
+            <!-- PortfolioList -->
+            <ul id="list">
+
+            </ul>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
