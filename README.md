@@ -7,6 +7,8 @@ This app allows users to select a cryptocurrency, enter the token amount, calcul
 
 ![Demo image](./demo.png)
 
+## [Live Demo](https://01mehran.github.io/Crypto-Exchange-App/)
+
 ### Features ⭐
 
 - 🎯 Crypto Selection — Choose a cryptocurrency from the dropdown
@@ -35,3 +37,9 @@ This app allows users to select a cryptocurrency, enter the token amount, calcul
 3. Vanilla JavaScript
 
 4. CoinGecko Public API
+
+
+## Contact 
+📧 **Email :** [mehranmohamadi1311@gmail.com](mailto:your-email@example.com)
+
+#### If you like this project, give it a ⭐ on GitHub! 💛
