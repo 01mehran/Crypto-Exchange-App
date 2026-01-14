@@ -5,7 +5,7 @@ This app allows users to select a cryptocurrency, enter the token amount, calcul
 
 ## Preview 📸
 
-![Demo image](./demo.png)
+![Demo image](./assets/images/demo.png)
 
 ## [Live Demo](https://01mehran.github.io/Crypto-Exchange-App/)
 
