@@ -1,8 +1,9 @@
 import { liTag } from "./liTag.js";
+import { deleteButton } from "./deleteButton.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const clac = async function () {
-    // ----------------Sellect Elements;
+    // Sellect Elements;
     const apiURL = "https://api.coingecko.com/api/v3/simple/price?ids=";
     const crypto = document.getElementById("crypto-select").value;
     const amount = document.getElementById("token-amount").value;
@@ -17,30 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const res = await fetch(`${apiURL}${crypto}&vs_currencies=usd`);
         loading.style.display = "none";
         const data = await res.json();
-        console.log(data);
 
-        // ---------------------- Get Each Token's Price;
+        // Get Each Token's Price;
         const price = data[crypto].usd;
 
-        // ---------------------- Calculate Total Price;
+        // Calculate Total Price;
         const totalValue = price * amount;
 
-        // ---------------------- Create li Tag;
-        const lielement = liTag({ crypto, amount, price, totalValue });
+        // Create li Tag;
+        const liTextContext = liTag({ crypto, amount, price, totalValue });
         const li = document.createElement("li");
-        li.innerHTML = lielement;
+        li.innerHTML = liTextContext;
 
-        // ---------------------Add 'li' Tag To Ul;
         list.appendChild(li);
-
         document.getElementById("token-amount").value = "";
 
-        //--------------------- Delete Button;
-        li.querySelector(".delete-btn").addEventListener("click", () => {
-          list.removeChild(li);
-        });
+        // Delete Button;
+        deleteButton({ li, list });
 
-        // ---------------------Edit Button
+        // Edit Button
         const editButton = li.querySelector(".edit-btn");
 
         editButton.addEventListener("click", async () => {
