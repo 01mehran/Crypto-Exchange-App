@@ -1,4 +1,4 @@
-export function handleEdit({ li }) {
+export function handleEdit({ li, editButton }) {
   const div = li.firstElementChild;
   const p = div.firstElementChild;
   const span = li.querySelector(".crypto-name");
@@ -38,4 +38,7 @@ export function handleEdit({ li }) {
   input.type = "number";
   input.value = tokenAmount.textContent;
   tokenAmount.replaceWith(input);
+
+  editButton.textContent = "Save";
+  editButton.style.backgroundColor = "green";
 }
