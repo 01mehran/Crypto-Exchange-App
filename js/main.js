@@ -1,3 +1,5 @@
+import { liTag } from "./liTag.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const clac = async function () {
     // ----------------Sellect Elements;
@@ -7,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loading = document.getElementById("loading");
     const list = document.getElementById("list");
+
     try {
       if (crypto && amount) {
         // ----------------------Show PreLoadindg;
@@ -14,30 +17,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const res = await fetch(`${apiURL}${crypto}&vs_currencies=usd`);
         loading.style.display = "none";
         const data = await res.json();
-        // ----------------------Get Each Token's Price;
+        console.log(data);
+
+        // ---------------------- Get Each Token's Price;
         const price = data[crypto].usd;
 
-        // ----------------------Calculate Total Price;
+        // ---------------------- Calculate Total Price;
         const totalValue = price * amount;
 
-        // ----------------------Create li Tag;
+        // ---------------------- Create li Tag;
+        const lielement = liTag({ crypto, amount, price, totalValue });
         const li = document.createElement("li");
-        li.innerHTML = `
-            <div>
-             <p> Crypto name : <span class="crypto-name">${
-               crypto.charAt(0).toUpperCase() + crypto.slice(1)
-             }</span></p>
-              <p> Token amount: <span class="token-amount">${amount}</span></p>
-             <p> Each token price: <span class="token-price">$${price}</span></p>
-               <p>Total price : <span class="total-price">$${totalValue.toFixed(
-                 2
-               )}</span> </p>
-            </div>
-
-            <div class="btnCo">
-              <button class="delete-btn">Delete</button>
-              <button class="edit-btn">Edit</button>
-            </div>`;
+        li.innerHTML = lielement;
 
         // ---------------------Add 'li' Tag To Ul;
         list.appendChild(li);
@@ -108,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
               try {
                 loading.style.display = "block";
                 const res = await fetch(
-                  `${apiURL}${newCrypto}&vs_currencies=usd`
+                  `${apiURL}${newCrypto}&vs_currencies=usd`,
                 );
 
                 const data = await res.json();
@@ -135,9 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 input.replaceWith(tokenAmountSpan);
 
                 li.querySelector(".token-price").textContent = `$${newPrice};`;
-                li.querySelector(
-                  ".total-price"
-                ).textContent = `$${newTotalValue.toFixed(2)}`;
+                li.querySelector(".total-price").textContent =
+                  `$${newTotalValue.toFixed(2)}`;
 
                 editButton.textContent = "Edit";
                 editButton.style.backgroundColor = "";
@@ -161,4 +151,3 @@ document.addEventListener("DOMContentLoaded", () => {
     clac();
   });
 });
-// ----------------------------------------------------------2----
