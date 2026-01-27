@@ -1,5 +1,6 @@
 export function liTag({ crypto, amount, price, totalValue }) {
-  return `<div>
+  return `
+      <div>
         <p> Crypto name : <span class="crypto-name">${
           crypto.charAt(0).toUpperCase() + crypto.slice(1)
         }</span></p>
@@ -8,10 +9,11 @@ export function liTag({ crypto, amount, price, totalValue }) {
         <p>Total price : <span class="total-price">$${totalValue.toFixed(
           2,
         )}</span> </p>
-            </div>
+      </div>
 
-        <div class="btnCo">
-            <button class="delete-btn">Delete</button>
-            <button class="edit-btn">Edit</button>
-        </div>`;
+      <div class="btnCo">
+        <button class="delete-btn">Delete</button>
+        <button class="edit-btn">Edit</button>
+      </div>
+        `;
 }

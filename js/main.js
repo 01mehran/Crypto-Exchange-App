@@ -2,23 +2,25 @@ import { liTag } from "./liTag.js";
 import { handleDeleteButton } from "./handleDeleteButton.js";
 import { handleEdit } from "./handleEdit.js";
 import { handleSave } from "./handleSave.js";
+import { helper } from "./helper.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const addButton = document.getElementById("add-btn");
+
   const handleCryptoExchnange = async function () {
     // Sellect Elements;
     const apiURL = "https://api.coingecko.com/api/v3/simple/price?ids=";
     const crypto = document.getElementById("crypto-select").value;
     const amount = document.getElementById("token-amount").value;
 
-    const loading = document.getElementById("loading");
+    // const loading = document.getElementById("loading");
     const list = document.getElementById("list");
 
     try {
       if (crypto && amount) {
-        // ----------------------Show PreLoadindg;
-        loading.style.display = "block";
+        // Show PreLoadindg;
+        helper("block", "none", "60%", addButton);
         const res = await fetch(`${apiURL}${crypto}&vs_currencies=usd`);
-        loading.style.display = "none";
         const data = await res.json();
 
         // Get Each Token's Price;
@@ -51,12 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (err) {
       console.error("Something went wrong", err.message);
+    } finally {
+      helper("none", "visible", "100%", addButton);
     }
   };
 
   // Add Button;
-  document.getElementById("add-btn").addEventListener("click", (e) => {
+  addButton.addEventListener("click", (e) => {
     e.preventDefault();
+
     handleCryptoExchnange();
   });
 });

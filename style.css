@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:wght@100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", serif;
 }
+
 body {
   background-color: rgba(0, 0, 0, 0.5);
   background-color: rgb(116, 17, 186);
-  /* background-color: #f7; */
 }
 
 .wrapper {
@@ -17,6 +18,7 @@ body {
   width: 90%;
   margin: auto;
 }
+
 .container {
   margin-top: 4rem;
   min-height: 30rem;
@@ -27,6 +29,7 @@ body {
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   position: relative;
 }
+
 .container h1 {
   text-align: center;
   margin-bottom: 3rem;
@@ -35,11 +38,13 @@ body {
   letter-spacing: 2;
   text-shadow: 2px 0px 8px #ffffffc1;
 }
+
 .container form {
   display: flex;
   justify-content: center;
   gap: 0.7rem;
 }
+
 form button {
   width: calc(100% / 3);
   height: 2.5rem;
@@ -55,13 +60,16 @@ form button {
   letter-spacing: 1.5;
   transition: all 0.3s;
 }
+
 form button:hover {
   cursor: pointer;
   border-color: #ffffffc8;
 }
+
 form button:active {
   scale: 0.99;
 }
+
 select,
 input {
   width: calc(100% / 3);
@@ -77,18 +85,22 @@ input {
   color: #fff;
   letter-spacing: 1.5;
 }
+
 input {
   font-size: 1.2rem;
 }
+
 select option {
   background-color: rgb(116, 17, 186);
   border-bottom: 2px solid;
   font-size: 18px;
 }
+
 ::placeholder {
   color: white;
   font-size: 16px;
 }
+
 .container h2 {
   color: #fff;
   font-weight: 500;
@@ -102,6 +114,7 @@ ul {
   max-width: 80%;
   margin: 3rem auto;
 }
+
 ul li {
   list-style-type: none;
   color: #fff;
@@ -116,10 +129,12 @@ ul li {
   letter-spacing: 1;
   font-weight: 300;
 }
+
 li span {
   color: rgba(238, 255, 6, 0.833);
   font-weight: 400;
 }
+
 .btnCo {
   width: calc(100% / 2);
   display: flex;
@@ -127,6 +142,7 @@ li span {
   justify-content: center;
   gap: 1rem;
 }
+
 .btnCo button {
   padding: 0.5rem 0;
   width: 8.5rem;
@@ -136,16 +152,19 @@ li span {
   border-radius: 3px;
   transition: all 0.3s;
 }
+
 .btnCo .delete-btn,
 .btnCo .edit-btn {
   color: #fff;
   background: transparent;
   border: 1px solid #8a8585c0;
 }
+
 .btnCo .delete-btn:hover {
   background: rgba(241, 44, 44, 0.908);
   border-color: transparent;
 }
+
 .btnCo .edit-btn:hover {
   background-color: rgba(255, 166, 0, 0.659);
 }
@@ -154,6 +173,7 @@ li input {
   /* border: 1px dashed #fff; */
   width: 30%;
 }
+
 /* Loading */
 .loading {
   float: right;
@@ -167,38 +187,62 @@ li input {
   border-radius: 50%;
   position: relative;
   transform: translateZ(0);
-  animation: mltShdSpin 1.7s infinite ease, round 1.7s infinite ease;
+  animation:
+    mltShdSpin 1.7s infinite ease,
+    round 1.7s infinite ease;
   display: none;
 }
+
 @keyframes mltShdSpin {
   0% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
-      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow:
+      0 -0.83em 0 -0.4em,
+      0 -0.83em 0 -0.42em,
+      0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em,
+      0 -0.83em 0 -0.477em;
   }
   5%,
   95% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
-      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow:
+      0 -0.83em 0 -0.4em,
+      0 -0.83em 0 -0.42em,
+      0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em,
+      0 -0.83em 0 -0.477em;
   }
   10%,
   59% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
-      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+    box-shadow:
+      0 -0.83em 0 -0.4em,
+      -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em,
+      -0.256em -0.789em 0 -0.46em,
       -0.297em -0.775em 0 -0.477em;
   }
   20% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
-      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+    box-shadow:
+      0 -0.83em 0 -0.4em,
+      -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em,
+      -0.671em -0.488em 0 -0.46em,
       -0.749em -0.34em 0 -0.477em;
   }
   38% {
-    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
-      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+    box-shadow:
+      0 -0.83em 0 -0.4em,
+      -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em,
+      -0.775em -0.297em 0 -0.46em,
       -0.82em -0.09em 0 -0.477em;
   }
   100% {
-    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
-      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    box-shadow:
+      0 -0.83em 0 -0.4em,
+      0 -0.83em 0 -0.42em,
+      0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em,
+      0 -0.83em 0 -0.477em;
   }
 }
 
@@ -210,12 +254,10 @@ li input {
     transform: rotate(360deg);
   }
 }
-/* media */
+
+/*---------------- media */
 
 @media screen and (width < 1300px) {
-  /* body { */
-  /* background: red; */
-  /* } */
   ul {
     justify-content: center;
   }
@@ -225,7 +267,6 @@ li input {
   }
   .btnCo {
     justify-content: center;
-    /* background: #000; */
     width: 100%;
     margin-top: 1rem;
   }
@@ -235,8 +276,9 @@ li input {
 }
 
 #crypto-select-edit {
-  width:100%;
+  width: 100%;
 }
+
 @media screen and (width < 1150px) {
   .container h1 {
     font-size: 3.5vw;
@@ -259,6 +301,7 @@ li input {
     padding: 1rem 3rem;
   }
 }
+
 @media screen and (width < 800px) {
   .btnCo {
     width: 100%;
@@ -269,6 +312,7 @@ li input {
     color: red;
   }
 }
+
 @media screen and (width < 600px) {
   .wrapper {
     width: 97%;

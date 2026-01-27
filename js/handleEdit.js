@@ -20,14 +20,16 @@ export function handleEdit({ li, editButton }) {
     "chainlink",
     "dogecoin",
   ];
-  options.forEach((option) => {
-    const opt = document.createElement("option");
-    opt.value = option;
-    opt.textContent = option.charAt(0).toUpperCase() + option.slice(1);
-    if (option === span.textContent.toLowerCase()) {
-      opt.selected = true;
+
+  options.forEach((opt) => {
+    const option = document.createElement("option");
+
+    option.value = opt;
+    option.textContent = opt.charAt(0).toUpperCase() + opt.slice(1);
+    if (opt === span.textContent.toLowerCase()) {
+      option.selected = true;
     }
-    select.appendChild(opt);
+    select.appendChild(option);
   });
 
   div.insertBefore(select, p);
