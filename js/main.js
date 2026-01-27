@@ -1,8 +1,9 @@
 import { liTag } from "./liTag.js";
-import { deleteButton } from "./deleteButton.js";
+import { handleDeleteButton } from "./handleDeleteButton.js";
+import { handleEdit } from "./handleEdit.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const clac = async function () {
+  const handleCryptoExchnange = async function () {
     // Sellect Elements;
     const apiURL = "https://api.coingecko.com/api/v3/simple/price?ids=";
     const crypto = document.getElementById("crypto-select").value;
@@ -34,52 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("token-amount").value = "";
 
         // Delete Button;
-        deleteButton({ li, list });
+        handleDeleteButton({ li, list });
 
         // Edit Button
         const editButton = li.querySelector(".edit-btn");
 
         editButton.addEventListener("click", async () => {
           if (editButton.textContent === "Edit") {
-            const div = li.firstElementChild;
-            const p = div.firstElementChild;
-            const span = li.querySelector(".crypto-name");
-            const tokenAmount = li.querySelector(".token-amount");
-
-            //--------------------- Creat Select;
-            const select = document.createElement("select");
-            select.id = "crypto-select-edit";
-            const options = [
-              "bitcoin",
-              "ripple",
-              "litecoin",
-              "ethereum",
-              "stellar",
-              "cardano",
-              "bitcoin-cash",
-              "polkadot",
-              "chainlink",
-              "dogecoin",
-            ];
-            options.forEach((option) => {
-              const opt = document.createElement("option");
-              opt.value = option;
-              opt.textContent =
-                option.charAt(0).toUpperCase() + option.slice(1);
-              if (option === span.textContent.toLowerCase()) {
-                opt.selected = true;
-              }
-              select.appendChild(opt);
-            });
-
-            div.insertBefore(select, p);
-            div.removeChild(p);
-
-            // -------------- Input;
-            const input = document.createElement("input");
-            input.type = "number";
-            input.value = tokenAmount.textContent;
-            tokenAmount.replaceWith(input);
+            handleEdit({ li });
 
             editButton.textContent = "Save";
             editButton.style.backgroundColor = "green";
@@ -144,6 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add Button;
   document.getElementById("add-btn").addEventListener("click", (e) => {
     e.preventDefault();
-    clac();
+    handleCryptoExchnange();
   });
 });
