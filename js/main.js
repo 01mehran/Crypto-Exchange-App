@@ -1,8 +1,12 @@
+// components;
 import { liTag } from "./liTag.js";
 import { handleDeleteButton } from "./handleDeleteButton.js";
 import { handleEdit } from "./handleEdit.js";
 import { handleSave } from "./handleSave.js";
 import { helper } from "./helper.js";
+
+// elements;
+import { addButton, amount, crypto_select, list } from "./dom.js";
 
 const cryptos = [
   "ripple",
@@ -16,43 +20,39 @@ const cryptos = [
   "dogecoin",
 ];
 
-const cryptoo = document.getElementById("crypto-select");
-
 cryptos.forEach((crp) => {
   const option = document.createElement("option");
-  option.textContent = crp[0].toLocaleUpperCase() + crp.slice(1);
+  option.textContent = crp.charAt(0).toUpperCase() + crp.slice(1);
   option.value = crp;
 
-  cryptoo.appendChild(option);
+  crypto_select.appendChild(option);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const addButton = document.getElementById("add-btn");
-
   const handleCryptoExchnange = async function () {
-    // Sellect Elements;
     const apiURL = "https://api.coingecko.com/api/v3/simple/price?ids=";
-    const crypto = document.getElementById("crypto-select").value;
-    const amount = document.getElementById("token-amount").value;
-
-    // const loading = document.getElementById("loading");
-    const list = document.getElementById("list");
+    const selectedCrypto = crypto_select.value;
 
     try {
-      if (crypto && amount) {
+      if (selectedCrypto && amount) {
         // Show PreLoadindg;
         helper("block", "none", "60%", addButton);
-        const res = await fetch(`${apiURL}${crypto}&vs_currencies=usd`);
+        const res = await fetch(`${apiURL}${selectedCrypto}&vs_currencies=usd`);
         const data = await res.json();
 
         // Get Each Token's Price;
-        const price = data[crypto].usd;
+        const price = data[selectedCrypto].usd;
 
         // Calculate Total Price;
         const totalValue = price * amount;
 
         // Create li Tag;
-        const liTextContext = liTag({ crypto, amount, price, totalValue });
+        const liTextContext = liTag({
+          selectedCrypto,
+          amount,
+          price,
+          totalValue,
+        });
         const li = document.createElement("li");
         li.innerHTML = liTextContext;
 
