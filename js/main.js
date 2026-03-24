@@ -4,6 +4,28 @@ import { handleEdit } from "./handleEdit.js";
 import { handleSave } from "./handleSave.js";
 import { helper } from "./helper.js";
 
+const cryptos = [
+  "ripple",
+  "litecoin",
+  "ethereum",
+  "stellar",
+  "cardano",
+  "bitcoin",
+  "polkadot",
+  "chainlink",
+  "dogecoin",
+];
+
+const cryptoo = document.getElementById("crypto-select");
+
+cryptos.forEach((crp) => {
+  const option = document.createElement("option");
+  option.textContent = crp[0].toLocaleUpperCase() + crp.slice(1);
+  option.value = crp;
+
+  cryptoo.appendChild(option);
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const addButton = document.getElementById("add-btn");
 
